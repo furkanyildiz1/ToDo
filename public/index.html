@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#062e3f">
+    <meta name="Description" content="A dynamic and aesthetic To-Do List WebApp.">
+
+    <!-- Google Font'dan aldığımız yazı tipimiz -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+
+    <!--Simgeler için Font Awesome kitaplığı !-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+
+    <!--PDF dosyaları oluşturmaya yönelik bir JavaScript kitaplığı olan jspdf kitaplığını içe aktarır. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>  
+
+    <!--Grafik oluşturmak için kullandığımız JavaScript kitaplığı olan Chart.js kitaplığını içe aktarır. -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Css dosyamız -->
+    <link rel="stylesheet" href="CSS/main.css">
+ 
+</head>
+<body>
+    <!-- Sayfada yukarı/aşağı çıkan tuş -->
+    <button id="scrollButton" class="scroll-button">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Zamanlayıcı kutusu -->
+    <div class="timer-container">
+        <div class="timer-circle">
+            <p id="datetime-center">00:00:00</p>
+            <button id="toggle-timer-btn">Stop</button>
+        </div>
+    </div>
+   
+
+    <div id="header">
+        <!-- Temalar -->
+        <div class="flexrow-container">
+            <div class="standard-theme theme-selector"></div>
+            <div class="light-theme theme-selector"></div>
+            <div class="darker-theme theme-selector"></div>
+        </div>
+        <!-- Başlık -->
+        <h1 id="title">Just do it.<div id="border"></div></h1>
+        <!-- Zaman -->
+        <p><span id="datetime"></span></p>
+    </div>
+
+    <!-- Form -->
+    <div id="form">
+        <form>
+            <input class="todo-input" type="text" placeholder="Add a task.">
+            <input class="todo-date" type="date" placeholder="Select a date">
+            <select class="todo-priority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button class="todo-btn" type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Filtreleme düğmeleri -->
+    <div id="filter-buttons">
+        <button id="daily-btn">Daily</button>
+        <button id="weekly-btn">Weekly</button>
+        <button id="monthly-btn">Monthly</button>
+    </div>
+
+    <!-- Görev listesi -->
+    <div id="myUnOrdList">
+        <ul class="todo-list"></ul>
+    </div>
+
+    <!-- Soldan açılan dosya aktarımı yaptığımız panel-->
+    <div id="side-panel">
+        <button id="about-btn">About</button>
+        <button id="contact-btn">Contact</button>
+        <button id="export-tasks-btn">
+        Export Tasks(CSV)</button>
+        <button id="export-tasks-pdf-btn">Export Tasks(PDF)</button>
+        <input type="file" id="import-tasks-btn" accept=".csv">
+    </div>
+    <button id="panel-btn">&gt;</button>
+    
+    <!-- Grafik -->
+    <canvas id="taskChart"></canvas>
+
+    <!-- Kolay ulaşım paneli -->
+    <div class="container">
+        <a href="https://github.com" target="_blank" class="glass" data-text="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://discord.com" target="_blank" class="glass" data-text="Discord">
+            <i class="fab fa-discord"></i>
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="glass" data-text="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" class="glass" data-text="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="mailto:example@example.com" target="_blank" class="glass" data-text="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+
+
+    <script src="JS/main.js"></script> 
+    <script src="JS/time.js"></script>
+    
+</body>
+</html>
